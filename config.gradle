@@ -1,0 +1,17 @@
+ext {
+    android = [
+            compileSdkVersion        : 29,
+            buildToolsVersion        : "29.0.0",
+            applicationId            : "com.dev.commonbase",
+            minSdkVersion            : 21,
+            targetSdkVersion         : 29,
+            versionCode              : 1,
+            versionName              : "1",
+            testInstrumentationRunner: "android.support.test.runner.AndroidJUnitRunner"
+    ]
+
+    dependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.1",
+            x_ktx : "androidx.core:core-ktx:1.0.1"
+    ]
+}
