@@ -1,4 +1,4 @@
-package com.lzt.common.base.adapter
+package com.dev.common.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 

@@ -1,4 +1,4 @@
-package com.dev.common.base
+package com.dev.component.base
 
 import android.content.Context
 import android.content.Intent

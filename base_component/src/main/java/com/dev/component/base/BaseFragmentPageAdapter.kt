@@ -1,8 +1,7 @@
-package com.dev.common.base.adapter
+package com.dev.component.base
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.lzt.common.base.BaseFragment
 
 import java.util.ArrayList
 
