@@ -1,4 +1,4 @@
-package com.dev.component.base
+package com.dev.common.base
 
 import android.app.Application
 import android.content.Context
@@ -34,7 +34,7 @@ class BaseApplication : Application() {
     companion object {
 
         /**
-         * 展示在前台的activity数量
+         * Application的context
          */
         lateinit var app: Application
     }

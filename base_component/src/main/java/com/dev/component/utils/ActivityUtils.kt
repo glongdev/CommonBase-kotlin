@@ -1,4 +1,4 @@
-package com.lzt.common.utils
+package com.dev.component.utils
 
 import android.app.Activity
 import android.content.Context
@@ -8,21 +8,21 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 
 /**
- *
+ *  start activity simple
  * @author guolong
  * @since 2019/6/20
  */
-fun Context.startDetailActivity(zi: String, saveHistory: Boolean = false) {
+fun Context.startDetailActivity() {
     val intent = Intent().apply {
-        action = "com.lzt.zidian.DetailActivity"
+        action = "com.dev.DetailActivity"
         addCategory(Intent.CATEGORY_DEFAULT)
     }
     startActivity(intent)
 }
 
-fun Activity.startDetailActivityWithOptions(zi: String, saveHistory: Boolean = false) {
+fun Activity.startDetailActivityWithOptions() {
     val intent = Intent().apply {
-        action = "com.lzt.zidian.DetailActivity"
+        action = "com.dev.DetailActivity"
         addCategory(Intent.CATEGORY_DEFAULT)
     }
     startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
@@ -30,7 +30,7 @@ fun Activity.startDetailActivityWithOptions(zi: String, saveHistory: Boolean = f
 
 fun Context.startSearchActivity() {
     val intent = Intent().apply {
-        action = "com.lzt.zidian.SearchActivity"
+        action = "com.dev.SearchActivity"
         addCategory(Intent.CATEGORY_DEFAULT)
     }
     startActivity(intent)
@@ -38,7 +38,7 @@ fun Context.startSearchActivity() {
 
 fun Activity.startSearchActivityWithOptions(pair: Pair<View, String>? = null) {
     val intent = Intent().apply {
-        action = "com.lzt.zidian.SearchActivity"
+        action = "com.dev.SearchActivity"
         addCategory(Intent.CATEGORY_DEFAULT)
     }
     if (pair == null) {

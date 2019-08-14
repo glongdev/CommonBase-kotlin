@@ -1,4 +1,4 @@
-package com.dev.component.base
+package com.dev.common.base
 
 import android.content.Context
 import android.content.Intent
@@ -21,14 +21,9 @@ import java.lang.reflect.ParameterizedType
  * @author guolong
  * @since 2019/4/3
  */
-
-// 20分钟 展示一次 收益太少了！！
-const val RE_SHOW_AD_TIME = 10 * 60 * 1000//退出后台多久后重新展示广告？
-
 abstract class BaseCompatActivity<T : ViewModel> : AppCompatActivity() {
 
     protected var mTag = javaClass.simpleName
-    protected var mViewModel: T? = null
 
     /**
      * 设置content layout id
@@ -42,7 +37,7 @@ abstract class BaseCompatActivity<T : ViewModel> : AppCompatActivity() {
      */
     protected val viewModel: T?
         get() {
-            val superTYpe = javaClass.genericSuperclass as ParameterizedType ?: return null
+            val superTYpe = javaClass.genericSuperclass as? ParameterizedType ?: return null
             val types = superTYpe.actualTypeArguments
             if (types.isNotEmpty()) {
                 val type = types[0]
@@ -56,7 +51,6 @@ abstract class BaseCompatActivity<T : ViewModel> : AppCompatActivity() {
         Log.i(mTag, "onCreate()####")
         initWindow()
         initScreenAdaptive()
-        mViewModel = viewModel
         setContentView(contentLayoutId)
         subscribe()
         initData()
@@ -78,16 +72,22 @@ abstract class BaseCompatActivity<T : ViewModel> : AppCompatActivity() {
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
         setupViews()
+        setupRecyclerView()
+        setupViewPager()
     }
 
     override fun setContentView(view: View) {
         super.setContentView(view)
         setupViews()
+        setupRecyclerView()
+        setupViewPager()
     }
 
     override fun setContentView(view: View, params: ViewGroup.LayoutParams) {
         super.setContentView(view, params)
         setupViews()
+        setupRecyclerView()
+        setupViewPager()
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -139,6 +139,16 @@ abstract class BaseCompatActivity<T : ViewModel> : AppCompatActivity() {
      * 初始化Views
      */
     protected open fun setupViews() {}
+
+    /**
+     * 初始化RecyclerView 如果当前Activity有的话
+     */
+    protected open fun setupRecyclerView() {}
+
+    /**
+     * 初始化ViewPager 如果当前Activity有的话
+     */
+    protected open fun setupViewPager() {}
 
     /**
      * 订阅ViewModel的数据——>更新UI

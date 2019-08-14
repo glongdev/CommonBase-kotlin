@@ -1,4 +1,4 @@
-package com.dev.component.base
+package com.dev.common.base
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter

@@ -1,4 +1,4 @@
-package com.dev.component.base
+package com.dev.common.base
 
 import android.content.Context
 import android.os.Bundle
